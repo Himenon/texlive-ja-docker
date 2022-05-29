@@ -1,8 +1,7 @@
-#!/usr/bin/env zx
+import pkg from "../package.json"
 
-const content = await fs.readFile("./package.json");
-const pkg = JSON.parse(content.toString());
+const scope = pkg.docker.scope;
+const imageName = pkg.docker.imageName;
 
-const actor = process.env.DOCKER_USER_NAME.toLowerCase();
-await $`docker build . -t ghcr.io/${actor}/texlive-ja:${pkg.version} --no-cache`;
-await $`docker tag ghcr.io/${actor}/texlive-ja:${pkg.version} ghcr.io/${actor}/texlive-ja:latest`;
+await $`docker build . -t ghcr.io/${scope}/${imageName}:${pkg.version} --no-cache`;
+await $`docker tag ghcr.io/${scope}/${imageName}:${pkg.version} ghcr.io/${scope}/${imageName}:latest`;
