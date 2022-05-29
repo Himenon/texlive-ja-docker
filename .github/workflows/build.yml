@@ -30,6 +30,7 @@ jobs:
       - name: Test & Build
         run: |
           pnpm docker:build
+          docker images
         env:
           CI: true
           DOCKER_USER_NAME: ${{ github.actor }}

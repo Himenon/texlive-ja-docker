@@ -29,6 +29,7 @@ jobs:
       - run: |
           pnpm docker:build
           pnpm docker:push
+          docker images
         env:
           CI: true
           DOCKER_USER_NAME: ${{ github.actor }}
