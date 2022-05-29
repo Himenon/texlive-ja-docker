@@ -19,6 +19,10 @@ RUN tlmgr install \
   latexmk \
   minted
 
+RUN tlmgr --version
+RUN dvipdfmx --version
+RUN uplatex --version
+
 FROM debian:11.3-slim
 ENV PATH /usr/local/bin/texlive:$PATH
 WORKDIR /workdir
