@@ -17,3 +17,7 @@ docker run --rm -v $(pwd):/data -w /data ghcr.io/himenon/pdf-crop-margins bash -
 ## LICENCE
 
 [@himenon/pdf-crop-margins](https://github.com/Himenon/pdf-crop-margins)・MIT
+
+## Inspired
+
+- https://github.com/wtsnjp/texlive-ja
