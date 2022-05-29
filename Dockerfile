@@ -16,7 +16,8 @@ RUN tlmgr install \
   collection-fontsrecommended \
   collection-langjapanese \
   collection-latexextra \
-  latexmk
+  latexmk \
+  minted
 
 FROM debian:11.3-slim
 ENV PATH /usr/local/bin/texlive:$PATH
@@ -26,6 +27,7 @@ RUN apt-get update \
   && apt-get install -y \
     perl \
     wget \
+    curl \
   && rm -rf /var/lib/apt/lists/*
 RUN ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
 CMD ["bash"]
