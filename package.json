@@ -5,13 +5,13 @@
   "keywords": [
     "typescript"
   ],
-  "homepage": "https://github.com/Himenon/template-js#readme",
+  "homepage": "https://github.com/Himenon/texlive-ja-docker#readme",
   "bugs": {
-    "url": "https://github.com/Himenon/template-js/issues"
+    "url": "https://github.com/Himenon/texlive-ja-docker/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Himenon/template-js.git"
+    "url": "git@github.com:Himenon/texlive-ja-docker.git"
   },
   "license": "MIT",
   "author": {
