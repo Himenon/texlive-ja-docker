@@ -18,18 +18,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: pnpm/action-setup@v2.2.0
+      - name: Set tag var
+        id: vars
+        run: echo ::set-output name=docker_tag::$(echo ${{ github.event.release.tag_name }} | sed -e 's/^v//')
+      - name: Docker Build & Push
+        uses: docker/build-push-action@v3
         with:
-          version: 7.1.0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: "16"
-          cache: "pnpm"
-      - run: pnpm i --frozen-lockfile
-      - run: |
-          pnpm docker:build
-          pnpm docker:push
-          docker images
-        env:
-          CI: true
-          DOCKER_USER_NAME: ${{ github.actor }}
+          context: .
+          push: true
+          tags: ghcr.io/himenon/texlive-ja:latest,ghcr.io/himenon/texlive-ja:${{ steps.vars.outputs.docker_tag }}
